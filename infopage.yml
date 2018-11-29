@@ -1,0 +1,20 @@
+- name: create a info webpage
+  hosts: all
+  become: true
+  become_user: root
+  tasks:
+
+    - name: install httpd package
+      yum:
+        name: httpd
+        state: present
+
+    - name: start httpd service
+      systemd:
+        name: httpd.service
+        state: started
+    
+    - name: write MAC address to webpage
+      template:
+        dest: /var/www/html/index.html
+        src: index.html.j2
