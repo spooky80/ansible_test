@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/spx1151/src/rewe/ansible-schulung","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
