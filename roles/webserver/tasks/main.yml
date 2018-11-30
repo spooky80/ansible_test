@@ -7,26 +7,27 @@
   systemd:
     name: httpd.service
     state: started
-    enabled: true
+    enabled: True
 
 - name: write various information to webpage
   template:
     dest: /var/www/html/index.html
     src: index.html.j2
-    
-- name: add header to httpd responses
+
+- name: add Foo header to httpd responses
   lineinfile:
     dest: /etc/httpd/conf.d/headers.conf
     line: "Header set X-Foo: foobar"
     regex: "Header set X-Foo:"
-    create: true
+    create: True
   notify: reload httpd service
 
-
-- name: add header to httpd responses
+- name: add Bar header to httpd responses
   lineinfile:
     dest: /etc/httpd/conf.d/headers.conf
     line: "Header set X-Bar: foobar"
     regex: "Header set X-Bar:"
-    create: true
+    create: True
   notify: reload httpd service
+
+- import_tasks: database.yml

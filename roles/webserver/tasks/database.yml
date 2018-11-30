@@ -1,0 +1,13 @@
+- name: create database for webserver
+  delegate_to: db
+  mysql_db:
+    name: webapp
+    state: present
+
+- name: grant database privileges for webserver
+  delegate_to: db
+  mysql_user:
+    priv: "webapp.*:ALL"
+    host: "%"
+    name: webapp
+    password: webapp
