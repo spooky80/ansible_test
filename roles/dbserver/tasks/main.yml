@@ -1,0 +1,17 @@
+- name: install MariaDB server package
+  yum:
+    name: mariadb-server
+    state: present
+
+- name: start and enable MySQL server
+  systemd:
+    name: mariadb.service
+    state: started
+    enabled: yes
+
+- name: install MySQL Python lib for Ansible
+  yum:
+    name: MySQL-python
+    state: present
+
+- import_tasks: databases.yml

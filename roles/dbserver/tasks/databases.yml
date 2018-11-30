@@ -1,0 +1,14 @@
+- name: create test databases
+  mysql_db:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ test_databases }}"
+
+- name: give test user permissions
+  mysql_user:
+    name: test
+    password: "{{ test_password }}"
+    priv: '{{ item }}.*:ALL'
+    state: present
+    append_privs: yes
+  with_items: "{{ test_databases }}"

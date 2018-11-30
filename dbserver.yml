@@ -1,0 +1,6 @@
+- name: install dbservers
+  hosts: dbservers
+  become: yes
+  become_user: root
+  roles:
+    - dbserver

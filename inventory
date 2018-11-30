@@ -1,0 +1,13 @@
+# prod systeme
+
+db.eil.risnet.de ansible_ssh_user=root
+web ansible_ssh_user=root
+<hostname> ansible_ssh_user=itmuser
+
+[webservers]
+web
+
+
+[dbservers]
+db.eil.risnet.de test_databases=prod
+
