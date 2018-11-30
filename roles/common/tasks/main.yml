@@ -1,0 +1,4 @@
+- name: SELinux Configuration
+  selinux:
+    state: enforcing
+    policy: targeted

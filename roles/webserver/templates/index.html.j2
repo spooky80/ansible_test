@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Little Server</title>
+</head>
+<body>
+    <p>MAC Address: {{ ansible_eth0.macaddress }}</p>
+    <ul>
+{% for address in ansible_all_ipv4_addresses %}
+      <li>{{ address }}</li>
+{% endfor %}
+    </ul>
+</body>
+</html>
