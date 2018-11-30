@@ -1,0 +1,15 @@
+- name: reboot the system
+  hosts: all
+  become: yes
+  become_user: root
+  gather_facts: no
+  tasks:
+    - name: reboot now
+      action: reboot
+    
+    - name: record kernel version
+      command: uname -a
+      register: uname
+    
+    - debug:
+        var: uname.stdout
